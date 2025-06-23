@@ -1,0 +1,200 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+    perspective: 800px;
+    perspective-origin: center center;
+    text-align: center;
+    /* Center inline-block wrappers */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 2;
+}
+
+
+
+/* Noise Canvas */
+#noiseCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    opacity: 0.15;
+    filter: blur(0.8px) contrast(130%);
+    mix-blend-mode: soft-light;
+}
+
+.img-wrapper {
+
+    position: relative;
+    display: inline-block;
+    max-width: 100vw;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    vertical-align: top;
+    /* Fix inline-block baseline issues */
+    text-align: center;
+    transition: filter 0.3s ease;
+}
+
+
+
+
+
+.full-width-img,
+.centered-full {
+    display: block;
+    width: 100%;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+    margin: 0 auto;
+}
+
+/* Limit max width for centered images */
+.centered-full {
+    max-width: 900px;
+}
+
+/* Overlay inverted image */
+.invert-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: invert(1);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+/* Section backgrounds */
+section.white-bg {
+    background-color: white;
+    color: black;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 5;
+    transition: background-color 1s ease;
+}
+
+section.dark-bg {
+    background-color: black;
+    color: white;
+    padding: 2rem 0;
+    position: relative;
+    z-index: 5;
+    transition: background-color 1s ease;
+}
+
+/* Optional: Body grain overlay */
+body::after {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.05;
+    animation: grainAnim 1s steps(10) infinite;
+    z-index: 5;
+    mix-blend-mode: overlay;
+}
+
+@keyframes grainAnim {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+.timestamp {
+    font-size: 3.5rem;
+    /* Bigger font */
+    font-family: 'Helvetica neu', monospace;
+    color: #ffd4ff;
+    margin-top: 1rem;
+    white-space: pre;
+    /* Preserve spaces */
+    text-shadow: 0 0 4px #ffffff;
+    /* Soft glow */
+    opacity: 0.8;
+    min-height: 2.4rem;
+    /* Prevent jumping as it types */
+}
+
+
+
+.timestamp::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    margin-left: 1px;
+    opacity: 0.6;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Mobile-friendly layout */
+@media (max-width: 600px) {
+
+    .title,
+    .timestamp {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    .img-wrapper {
+        width: 100%;
+        margin: 2rem 0;
+    }
+
+    .full-width-img,
+    .centered-full {
+        width: 95vw;
+        height: auto;
+    }
+
+    #noiseCanvas {
+        opacity: 0.1;
+        filter: blur(1px) contrast(120%);
+    }
+}
+
+/* Larger phones / small tablets */
+@media (max-width: 900px) {
+    .timestamp {
+        font-size: 2.5rem;
+    }
+
+    .centered-full {
+        max-width: 600px;
+    }
+}
