@@ -163,11 +163,11 @@ body::after {
 }
 
 /* Mobile-friendly layout */
-@media (max-width: 600px) {
+@media (max-width: 800px) {
 
     .title,
     .timestamp {
-        font-size: 2rem;
+        font-size: 24pt;
         padding: 0 1rem;
     }
 
@@ -178,7 +178,7 @@ body::after {
 
     .full-width-img,
     .centered-full {
-        width: 95vw;
+        width: 100vw;
         height: auto;
     }
 
