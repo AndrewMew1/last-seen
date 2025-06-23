@@ -133,7 +133,7 @@ body::after {
 }
 
 .timestamp {
-    font-size: 3.5rem;
+    font-size: 32pt;
     /* Bigger font */
     font-family: 'Helvetica neu', monospace;
     color: #ffd4ff;
