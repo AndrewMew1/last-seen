@@ -167,7 +167,7 @@ body::after {
 
     .title,
     .timestamp {
-        font-size: 24pt;
+        font-size: 1rem;
         padding: 0 1rem;
     }
 
@@ -191,7 +191,7 @@ body::after {
 /* Larger phones / small tablets */
 @media (max-width: 900px) {
     .timestamp {
-        font-size: 24pt;
+        font-size: 1rem;
     }
 
     .centered-full {
