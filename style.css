@@ -172,13 +172,13 @@ body::after {
     }
 
     .img-wrapper {
-        width: 100%;
+        width: 90%;
         margin: 2rem 0;
     }
 
     .full-width-img,
     .centered-full {
-        width: 100vw;
+        width: 90vw;
         height: auto;
     }
 
@@ -191,7 +191,7 @@ body::after {
 /* Larger phones / small tablets */
 @media (max-width: 900px) {
     .timestamp {
-        font-size: 2.5rem;
+        font-size: 24pt;
     }
 
     .centered-full {
